@@ -1,17 +1,17 @@
-from bs4 import BeautifulSoup
+import tkinter as tk
+import customtkinter as ctk
 
-with open('home.html', 'r') as html_file:
-    content = html_file.read()
-    
-    soup = BeautifulSoup(content, 'lxml')
-    course_cards = soup.find_all('div', class_ ='card')
-    for course in course_cards:
-        course_name = course.h5.text
-        course_price = course.a.text.split()[-1]
+app = ctk.CTk()
+app.geometry('600x400')
+app.title('Pruebas')
+ctk.set_appearance_mode('dark')
 
-        print(f'{course_name} cost {course_price}')
+app.resizable(width=True, height=True)
+
+frame1 = ctk.CTkFrame(master=app,corner_radius= 33)
+label = ctk.CTkLabel(frame1, text='Hola')
+label.pack(side = 'right')
+frame1.pack()
 
 
-
-
-        
+app.mainloop()
